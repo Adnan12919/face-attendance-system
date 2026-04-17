@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+
+# Database
+attendance.db
+
+# Models (large file)
+models/arcface/w600k_mbf.onnx
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+venv/
