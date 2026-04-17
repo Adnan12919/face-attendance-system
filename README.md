@@ -3,7 +3,7 @@
 An AI-powered smart attendance system that uses face recognition + anti-proxy detection to automate classroom attendance.
 
 ---
-
+```
 🚀 Features
 ✅ Real-time face detection using OpenCV
 ✅ High-accuracy recognition using ArcFace (ONNX)
@@ -14,7 +14,7 @@ An AI-powered smart attendance system that uses face recognition + anti-proxy de
 ✅ Real-time UI updates using SSE (no refresh needed)
 ✅ SQLite database for storage
 ✅ Dark / Light theme UI
-
+```
 ---
 
 🏗️ Tech Stack
@@ -29,27 +29,27 @@ An AI-powered smart attendance system that uses face recognition + anti-proxy de
 ---
 
 📂 Project Structure
-face-attendance-system/
-│
-├── backend.py              # Main backend logic
-├── run.py                  # Entry point
-├── README.md
-│
+```
+face_attendance_system/
+├── run.py                       ← START HERE — launches everything
+├── backend.py                   ← Python: camera, ArcFace, DB, Flask API
 ├── templates/
-│   └── index.html          # UI layout
-│
+│   └── index.html               ← HTML: UI structure
 ├── static/
-│   ├── style.css           # Styling
-│   ├── app.js              # Frontend logic
-│   └── logo.png
-│
+│   ├── style.css                ← CSS: dark/light theme, layout
+│   ├── app.js                   ← JS: SSE events, REST calls, UI updates
+│   └── logo.png                 ← Sharda logo (copy sharda_logo.png here)
 ├── models/
 │   └── arcface/
-│       └── w600k_mbf.onnx  # (download manually)
-│
+│       └── w600k_mbf.onnx       ← ArcFace model (download below)
 ├── registered_faces/
 │   ├── teacher/
+│   │   └── T001_Dr_Manmohan_Singh.jpg
 │   └── students/
+│       ├── 2024457224_Rishabh_Saurabh.jpg
+│       └── 2024126451_Adnan_Rahman.jpg
+└── attendance.db                ← auto-created SQLite database
+```
 
 ---
 
