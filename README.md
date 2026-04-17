@@ -1,91 +1,103 @@
-# Face Recognition Attendance System v4.0
-**PBL-2 (CSP-297) | Sharda School of Computing Science and Engineering**
-Members: Rishabh Saurabh (2024457224) | Adnan Rahman (2024126451)
-Faculty: Dr. Manmohan Singh
+🎓 Face Recognition Attendance System
 
----
+An AI-powered smart attendance system that uses face recognition + anti-proxy detection to automate classroom attendance.
 
-## Architecture (Why it's fast now)
-
-| Component | Language | Why |
-|---|---|---|
-| Face detection + ArcFace inference | Python / OpenCV / ONNX | Must be Python — no other option |
-| HTTP server + REST API | Python / Flask | Thin layer — negligible overhead |
-| Camera MJPEG stream | Python → Browser | Browser renders natively at 30fps |
-| **GUI / Layout / Theme** | **HTML + CSS** | GPU-accelerated in browser — much faster than Tkinter |
-| **Real-time updates** | **JavaScript (SSE)** | Zero Python polling — push-only |
-| **Dark/Light toggle** | **CSS variables** | Instant — single attribute change |
-| **Attendance table** | **JS + HTML** | Native DOM — renders in <1ms |
-| Database | SQLite (Python) | Stays Python — async write thread |
-
-**Result:** Python only runs camera + AI. Everything visual is HTML/CSS/JS.
-
----
-
-## Project Structure
-
-```
-face_attendance_v4/
-├── run.py                       ← START HERE — launches everything
-├── backend.py                   ← Python: camera, ArcFace, DB, Flask API
+🚀 Features
+✅ Real-time face detection using OpenCV
+✅ High-accuracy recognition using ArcFace (ONNX)
+✅ ORB fallback (works even without model)
+✅ Teacher verification before session start
+✅ Live student attendance tracking
+✅ Anti-proxy detection (prevents fake attendance)
+✅ Real-time UI updates using SSE (no refresh needed)
+✅ SQLite database for storage
+✅ Dark / Light theme UI
+🏗️ Tech Stack
+Component	Technology
+Backend	Python (Flask, OpenCV, ONNX Runtime)
+Frontend	HTML, CSS, JavaScript
+Database	SQLite
+AI Model	ArcFace
+📂 Project Structure
+face-attendance-system/
+│
+├── backend.py              # Main backend logic
+├── run.py                  # Entry point
+├── README.md
+│
 ├── templates/
-│   └── index.html               ← HTML: UI structure
+│   └── index.html          # UI layout
+│
 ├── static/
-│   ├── style.css                ← CSS: dark/light theme, layout
-│   ├── app.js                   ← JS: SSE events, REST calls, UI updates
-│   └── logo.png                 ← Sharda logo (copy sharda_logo.png here)
+│   ├── style.css           # Styling
+│   ├── app.js              # Frontend logic
+│   └── logo.png
+│
 ├── models/
 │   └── arcface/
-│       └── w600k_mbf.onnx       ← ArcFace model (download below)
+│       └── w600k_mbf.onnx  # (download manually)
+│
 ├── registered_faces/
 │   ├── teacher/
-│   │   └── T001_Dr_Manmohan_Singh.jpg
 │   └── students/
-│       ├── 2024457224_Rishabh_Saurabh.jpg
-│       └── 2024126451_Adnan_Rahman.jpg
-└── attendance.db                ← auto-created SQLite database
-```
-
----
-
-## Setup
-
-### 1. Install Python dependencies
-```bash
+⚙️ Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/Adnan12919/face-attendance-system.git
+cd face-attendance-system
+2️⃣ Install dependencies
 pip install flask opencv-python numpy onnxruntime pillow
-```
+3️⃣ Add face images
 
-### 2. Download ArcFace model (~13 MB) — optional but recommended
-```
-URL: https://github.com/yakhyo/face-reidentification/releases/download/v0.0.1/w600k_mbf.onnx
-Save to: models/arcface/w600k_mbf.onnx
-```
-If missing, system auto-falls back to ORB recogniser.
+Add images in this format:
 
-### 3. Add face photos
-- **Teacher:** `registered_faces/teacher/T001_Dr_Manmohan_Singh.jpg`
-- **Students:** `registered_faces/students/2024457224_Rishabh_Saurabh.jpg`
-- Naming rule: `<ID>_<FirstName>_<LastName>.jpg`
+registered_faces/
+  teacher/
+    T001_Name.jpg
+  students/
+    12345_Name.jpg
 
-### 4. Add logo
-Copy `sharda_logo.png` → `static/logo.png`
+📌 Naming rule:
 
-### 5. Run
-```bash
+<ID>_<FirstName>_<LastName>.jpg
+4️⃣ Download ArcFace model (Optional but recommended)
+
+Download:
+https://github.com/yakhyo/face-reidentification/releases/download/v0.0.1/w600k_mbf.onnx
+
+Place it in:
+
+models/arcface/
+
+👉 If not added, system will use ORB fallback.
+
+5️⃣ Run the project
 python run.py
-```
-Browser opens automatically at `http://localhost:5000`
 
----
+Open in browser:
 
-## API Endpoints
+http://localhost:5000
+🧠 How It Works
+Teacher face is verified first
+Attendance session starts
+Students are detected via webcam
+Faces are matched using AI model
+Attendance is marked in database
+Proxy detection prevents fake faces (photo/screens)
+📸 Screenshots
 
-| Endpoint | Method | Description |
-|---|---|---|
-| `/` | GET | Serves the UI |
-| `/stream` | GET | MJPEG camera stream |
-| `/events` | GET | Server-Sent Events stream |
-| `/api/start` | POST | Start attendance session |
-| `/api/end` | POST | End session |
-| `/api/attendance` | GET | Today's attendance (JSON) |
-| `/api/status` | GET | Current system state (JSON) |
+Add your project screenshots here
+
+screenshots/ui.png
+screenshots/attendance.png
+screenshots/proxy.png
+👨‍💻 Authors
+Adnan Rahman
+Rishabh Saurabh
+🎯 Future Improvements
+📱 Mobile app integration
+☁️ Cloud deployment
+🧑‍🏫 Multi-class support
+📊 Analytics dashboard
+⭐ Show Your Support
+
+If you like this project, give it a ⭐ on GitHub!
