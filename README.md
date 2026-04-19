@@ -173,11 +173,12 @@ http://localhost:5000
 Add your project screenshots here
 
 screenshots/ui.png
-![alt text](<Screenshot 2026-04-17 214708.png>)
-![alt text](<Screenshot 2026-04-17 214715.png>)
+![alt text](ui1.png) 
+![alt text](ui2.png)
 
 screenshots/attendance.png
-![alt text](<Screenshot 2026-04-15 095337.png>)
+![alt text](attendance.png) 
+![alt text](teacher_verification.png)
 
 
 ---
