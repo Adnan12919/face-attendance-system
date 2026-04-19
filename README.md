@@ -173,12 +173,15 @@ http://localhost:5000
 Add your project screenshots here
 
 screenshots/ui.png
-pbl2/screenshots/ui1.png 
-pbl2/screenshots/ui2.png
+
+![alt text](screenshots/ui1.png) 
+![alt text](screenshots/ui2.png)
+
 
 screenshots/attendance.png
-pbl2/screenshots/attendance.png 
-pbl2/screenshots/teacher_verification.png
+
+![alt text](screenshots/attendance.png) 
+![alt text](screenshots/teacher_verification.png)
 
 
 ---
