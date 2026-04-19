@@ -174,15 +174,16 @@ Add your project screenshots here
 
 screenshots/ui.png
 
-![alt text](screenshots/ui1.png) 
+![alt text](screenshots/ui1.png)
+ 
 ![alt text](screenshots/ui2.png)
 
 
 screenshots/attendance.png
 
-![alt text](screenshots/attendance.png) 
 ![alt text](screenshots/teacher_verification.png)
 
+![alt text](screenshots/attendance.png) 
 
 ---
 
